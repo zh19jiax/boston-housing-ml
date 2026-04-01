@@ -53,3 +53,16 @@ We plan to link the datasets together using shared identifiers. Specifically:
 - This same mapping can also be applied to the Public Works Violations dataset.
 
 Using these relationships, we aim to connect each violation to a specific address, parcel, and property record. 
+
+## Preliminary Findings
+
+The following findings are drawn from our initial data exploration on the merged dataset of 17,075 violation records.
+
+**Goal 1 — Identifying Offending Patterns**
+Violations are geographically concentrated, with Dorchester accounting for nearly 27% of all cases (4,526 of 17,075). A small number of private LLCs and limited partnerships are disproportionate repeat offenders — the top 15 private owners each hold 20–43 violations, and most are structured as LLCs, which complicates direct accountability. Enforcement resolution is consistent citywide (~94% closed), meaning the problem is not inspection response but recurring non-compliance from the same actors.
+
+**Goal 2 — Building Characteristics and Violation Rates**
+Building age is the strongest signal: the median build year of violating properties is 1910, with the distribution heavily concentrated before 1930. Multi-family residential buildings (2-family, 3-family, condos) account for the majority of violations, suggesting that tenant density amplifies the impact of owner negligence. Overall building condition, however, is not a reliable predictor — most violations occur in "Average" or "Good" rated buildings, meaning structural decay is not necessary for non-compliance to occur.
+
+**Goal 3 — Prevalent Complaint Types**
+Two categories dominate: "Failure to Obtain Permit" (4,181 cases, 24.5%) and "Unsafe and Dangerous" (3,611 cases, 21.1%), together making up nearly half of all violations. This split suggests two distinct problem populations — one driven by regulatory non-compliance (permit failures, certification lapses) and one by genuine structural safety risk — which likely require different enforcement strategies to address.
