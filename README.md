@@ -2,7 +2,7 @@
 
 > **10-minute presentation video:** _link to be added once the recording is uploaded_
 >
-> **Final deliverable notebook:** [`modeling_final.ipynb`](modeling_final.ipynb) — single Random Forest, two metrics (ROC-AUC and accuracy), trained on parcel-grouped splits to avoid the leakage that plagued the v1 baseline.
+> **Final deliverable notebook:** [`modeling_final.ipynb`](modeling_final.ipynb) — single Random Forest, two metrics (ROC-AUC and accuracy), trained on parcel-grouped splits to avoid the leakage that happened in the v1 baseline.
 
 ---
 
