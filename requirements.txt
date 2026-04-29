@@ -1,0 +1,15 @@
+# Core dependencies for the final deliverable (modeling_final.ipynb + tests).
+# Versions are minimum-floors, not pins — install latest compatible.
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.4
+matplotlib>=3.7
+
+# Notebook execution (used by `make train` and `make data`).
+nbformat>=5.7
+nbclient>=0.8
+ipykernel>=6.20
+jupyter>=1.0
+
+# Testing.
+pytest>=7.0

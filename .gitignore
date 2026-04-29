@@ -1,0 +1,19 @@
+# Misleading prediction file from the leaky v1 notebook (modeling.ipynb).
+# Re-generated whenever someone runs that notebook; should never be committed.
+predictions.csv
+
+# macOS folder metadata
+.DS_Store
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoint dirs
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
