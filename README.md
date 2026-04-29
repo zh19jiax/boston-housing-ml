@@ -92,6 +92,8 @@ All data comes from Boston's open-data portal, [Analyze Boston](https://data.bos
 
 **Join strategy** (in [`data_processing.ipynb`](data_processing.ipynb)): `building_violations.sam_id → SAM.SAM_ADDRESS_ID → SAM.PARCEL → property_assessment.PID`. This chain links each violation row to its parcel and the parcel's ownership record.
 
+> **A note on Public Works Violations.** Our original proposal listed Public Works Violations as a fourth source. We dropped it before the modeling stage: most PW records are sanitation issues (improper trash storage, overgrown weeds, sidewalk snow), which fall outside the housing-code scope of our prediction target. Including them would change the question we are trying to answer, so we kept the scope on Building & Property Violations.
+
 ---
 
 ## 5. Data Cleaning
