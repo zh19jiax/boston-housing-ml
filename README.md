@@ -181,7 +181,7 @@ To do meaningfully better the project would likely need a different *target* (se
 
 ## 10. Tests and CI
 
-[`tests/test_pipeline.py`](tests/test_pipeline.py) contains five tests, all passing in ~3 seconds:
+[`tests/test_pipeline.py`](tests/test_pipeline.py) contains five tests:
 
 - target column is binary and matches the "parcel appears > once" rule
 - group-aware split has zero parcel overlap between train and test (the v1 leak fix)
@@ -189,4 +189,4 @@ To do meaningfully better the project would likely need a different *target* (se
 - Random Forest trains and `predict_proba` is in [0, 1]
 - held-out AUC clears a sanity floor of 0.55 on a fixed-seed subsample
 
-[`.github/workflows/test.yml`](.github/workflows/test.yml) runs the suite on every push and pull request via Python 3.12 on `ubuntu-latest`. Run locally with `make test`.
+[`.github/workflows/test.yml`](.github/workflows/test.yml) runs the suite on every push and pull request. Run locally with `make test`.
