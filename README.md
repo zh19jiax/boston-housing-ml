@@ -77,7 +77,7 @@ Per-target detail:
 | `make all` | `install` + `train` + `test`. |
 
 **Reproducibility:** all randomness is seeded by `RANDOM_STATE = 42`. A fresh `make all` reproduces the headline numbers in [Results](#8-results) bit-for-bit.
-
+> Python 3.11+, tested on Ubuntu (GitHub Actions) and Windows. Raw datasets require ~500 MB disk space.
 ---
 
 ## 4. Data Collection
