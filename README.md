@@ -129,13 +129,13 @@ We tried `weekday`, `property_age`, KMeans-based geographic clusters, and a corp
 
 The modeling effort proceeded in five iterations, each motivated by the previous one's findings.
 
-**v1 (`modeling.ipynb`)** — decision tree with a *random row-level split*. Reported ~0.97 accuracy, but most parcels appear in many rows so a random split puts most of any parcel's records in both train and test. The model was memorizing parcels, not predicting. We keep this notebook as a cautionary baseline.
+**v1 (`modeling.ipynb`)** — Naïve Bayes (GaussianNB) with a *random row-level split*. Reported 0.620 accuracy, but most parcels appear in many rows so a random split puts most of any parcel's records in both train and test. The model is not using a group-aware split, so it cannot generalize to new properties. We keep this notebook as a cautionary baseline.
 
-**v2 (`modeling_v2.ipynb`)** — Random Forest with a **group-aware split by parcel**. The single most important fix in the project. The honest held-out ROC-AUC dropped to 0.611 — far below v1's misleading number, but a real measure of how well the model generalizes to *new* properties.
+**v2 (`modeling_v2.ipynb`)** — Random Forest with a **group-aware split by parcel**. The single most important fix in the project. The honest held-out ROC-AUC is 0.630 — a real measure of how well the model generalizes to *new* properties.
 
-**v3 (`modeling_v3.ipynb`)** — five models (Logistic Regression, RF, HistGradientBoosting, XGBoost, LightGBM), `HalvingRandomSearchCV` tuning, voting ensemble. Five models performed within ~0.03 of each other in CV. Aggressive tuning improved CV by 0.015 but did not move held-out test AUC. The voting ensemble added ~0.01 over the best single model.
+**v3 (`modeling_v3.ipynb`)** — five models (Logistic Regression, RF, HistGradientBoosting, XGBoost, LightGBM), `HalvingRandomSearchCV` tuning, voting ensemble. Five models performed within ~0.03 of each other in CV. Aggressive tuning improved CV by 0.012 but did not move held-out test AUC. The voting ensemble (0.614 AUC) came in 0.003 below the best single model (RF, 0.617).
 
-**v4 (`modeling_v4.ipynb`)** — TF-IDF text features on `description`, CatBoost, stacking ensemble, threshold tuning. Stacking (0.620 AUC) beat lone Random Forest (0.616) by ~0.004 — within noise. Confirmed that complexity isn't paying for itself on this dataset.
+**v4 (`modeling_v4.ipynb`)** — TF-IDF text features on `description`, CatBoost, stacking ensemble, threshold tuning. Random Forest (0.634 AUC) and Stacking (0.633) were essentially tied — within noise. Confirmed that complexity isn't paying for itself on this dataset.
 
 **Final (`modeling_final.ipynb`)** — single Random Forest with the smallest feature set that retained signal in v4. Trained with default hyperparameters; threshold for accuracy chosen from out-of-fold training predictions (no test-set peeking) at the (1 − prior) quantile so predicted positive rate matches the class prior.
 
@@ -147,14 +147,14 @@ The modeling effort proceeded in five iterations, each motivated by the previous
 
 ## 8. Results
 
-On the held-out test set (1,958 parcels never seen during training):
+On the held-out test set (1,963 parcels never seen during training):
 
 | Metric | Value |
 |---|---|
 | ROC-AUC | **0.622** |
-| Accuracy | **0.605** |
+| Accuracy | **0.589** |
 
-For context, v1's leaky model reported ~0.97 accuracy on its random row-level split — that number was memorization of parcels, not predictive skill. The 0.622 AUC on truly unseen parcels is an honest estimate of how the model would perform on new properties, and it matches the most complex stacking ensemble we built (0.620, v4) within noise.
+For context, v1's baseline reported 0.620 accuracy on its random row-level split without group-aware splitting, so it cannot generalize to new properties. The 0.622 AUC on truly unseen parcels is an honest estimate of how the model would perform on new properties.
 
 **Where the predictive signal lives.** Permutation importance from v2 and v4 agreed on the ranking: `description` (TF-IDF on the violation type) is by far the strongest, followed by `OWNER`, `code`, `ward`, and `LU_DESC`. Numeric features and `MAILING_NEIGHBORHOOD` carry only weak marginal signal once `ward` is in the model.
 
