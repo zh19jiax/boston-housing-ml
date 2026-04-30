@@ -42,7 +42,7 @@ CS506-FINAL/
 ├── requirements.txt
 ├── .github/workflows/test.yml ← CI: runs pytest on every push/PR
 │
-├── merged_violations.csv      ← cleaned merged dataset (16,277 rows)
+├── merged_violations.csv      ← cleaned merged dataset (17,129 rows)
 ├── data_processing.ipynb      ← raw → merged_violations.csv
 ├── visualizations.ipynb       ← 8 EDA charts answering the project goals
 │
@@ -98,7 +98,7 @@ All data comes from Boston's open-data portal, [Analyze Boston](https://data.bos
 
 ## 5. Data Cleaning
 
-The cleaning pipeline lives in [`data_processing.ipynb`](data_processing.ipynb) and produces `merged_violations.csv` (16,277 rows). The steps:
+The cleaning pipeline lives in [`data_processing.ipynb`](data_processing.ipynb) and produces `merged_violations.csv` (17,129 rows). The steps:
 
 1. **Per-source cleaning before any joins** — drop rows missing the relevant join key, deduplicate, strip whitespace, parse dates, uppercase string fields. Cast `YR_BUILT` to numeric and clip nonsensical values.
 2. **Two left joins** — Building Violations on `sam_id = SAM_ADDRESS_ID`, then on `PARCEL = PID`.
