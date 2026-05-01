@@ -160,7 +160,7 @@ For context, v1's baseline reported 0.620 accuracy on its random row-level split
 
 **Visualization findings** (from [`visualizations.ipynb`](visualizations.ipynb)) align with the modeling result:
 
-- Violations are geographically concentrated — Dorchester alone is 27% of the dataset, and a small number of LLC owners hold 20–43 violations each.
+- Violations are geographically concentrated — Dorchester alone is 27% of the dataset, and a small number of LLC owners hold 16–43 violations each.
 - Building age is a strong correlate: median build year of violating properties is 1910, and multi-family residential dominates.
 - Two violation types make up nearly half the dataset: "Failure to Obtain Permit" (24.5%) and "Unsafe and Dangerous" (21.1%).
 
