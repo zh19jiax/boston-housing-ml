@@ -129,7 +129,7 @@ We tried `weekday`, `property_age`, KMeans-based geographic clusters, and a corp
 
 The modeling effort proceeded in five iterations, each motivated by the previous one's findings.
 
-**v1 (`modeling.ipynb`)** — Naïve Bayes (GaussianNB) with a *random row-level split*. Reported 0.620 accuracy, but most parcels appear in many rows so a random split puts most of any parcel's records in both train and test. The model is not using a group-aware split, so it cannot generalize to new properties. We keep this notebook as a cautionary baseline.
+**v1 (`modeling.ipynb`)** — Gaussian Naive Bayes with a random row-level split. It reaches 0.620 accuracy, which is only 1.6 percentage points higher than the 60.4% baseline of always predicting repeat violations. Since parcels appear in multiple rows, a random split can place records from the same parcel in both the train and test sets. This breaks the data's grouping structure. Although GaussianNB cannot fully exploit this data leakage, the evaluation still does not show true generalization to new parcels. We keep this notebook as a baseline.
 
 **v2 (`modeling_v2.ipynb`)** — Random Forest with a **group-aware split by parcel**. The single most important fix in the project. The honest held-out ROC-AUC is 0.630 — a real measure of how well the model generalizes to *new* properties.
 
