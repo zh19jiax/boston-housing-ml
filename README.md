@@ -4,8 +4,6 @@ End-to-end analytics pipeline on **17,129** Boston housing code violations: scri
 
 > **📊 Interactive Tableau dashboard:** [Boston Housing Code Violations — Enforcement Targets](https://public.tableau.com/app/profile/jiaxu.zhao/viz/BostonHousingViolations/BostonHousingCodeViolationsEnforcementTargets)
 >
-> **🎥 10-minute presentation video:** [YouTube](https://youtu.be/w3Zz0WEbEPM)
->
 > **📓 Final deliverable notebook:** [`modeling_final.ipynb`](modeling_final.ipynb) — single Random Forest, two metrics (ROC-AUC and accuracy), trained on parcel-grouped splits to avoid the leakage that happened in the v1 baseline.
 
 ## Table of contents
