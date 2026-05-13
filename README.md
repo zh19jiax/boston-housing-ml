@@ -1,8 +1,12 @@
-# CS506 Final Report — Boston Housing Violations
+# Boston Housing Violations Analytics Engine
 
-> **10-minute presentation video:** [_Link to Video Presentation_](https://youtu.be/w3Zz0WEbEPM)
+End-to-end analytics pipeline on **17,129** Boston housing code violations: scripted ingestion across three open City of Boston datasets, EDA that ranks the worst-offending landlords and identifies neighborhood hotspots, an interactive Tableau dashboard, and a parcel-grouped Random Forest that predicts repeat violations.
+
+> **📊 Interactive Tableau dashboard:** [Boston Housing Code Violations — Enforcement Targets](https://public.tableau.com/app/profile/jiaxu.zhao/viz/BostonHousingViolations/BostonHousingCodeViolationsEnforcementTargets)
 >
-> **Final deliverable notebook:** [`modeling_final.ipynb`](modeling_final.ipynb) — single Random Forest, two metrics (ROC-AUC and accuracy), trained on parcel-grouped splits to avoid the leakage that happened in the v1 baseline.
+> **🎥 10-minute presentation video:** [YouTube](https://youtu.be/w3Zz0WEbEPM)
+>
+> **📓 Final deliverable notebook:** [`modeling_final.ipynb`](modeling_final.ipynb) — single Random Forest, two metrics (ROC-AUC and accuracy), trained on parcel-grouped splits to avoid the leakage that happened in the v1 baseline.
 
 ## Table of contents
 
